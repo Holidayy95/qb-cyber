@@ -2,7 +2,7 @@
 
 This job is an edited version of the qb-ifruitstore - This has custom items you can grab and sell for more profitable prices.
 
-## This job is setup for Linden Outlaw Alerts.
+## This resources comes with Linden Outlaw alerts already setup ;)
 
 ## Images go into your qb-inventory or aj-inventory - html/images folder.
 

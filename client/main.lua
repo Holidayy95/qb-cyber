@@ -150,21 +150,6 @@ function GrabItem(spot)
         anim = "hotwire",
         flags = 16,
     }, {}, {}, function() -- Done
-        -- if not copsCalled then
-        --     local s1, s2 = Citizen.InvokeNative(0x2EB41072B4C1E4C0, pos.x, pos.y, pos.z, Citizen.PointerValueInt(), Citizen.PointerValueInt())
-        --     local street1 = GetStreetNameFromHashKey(s1)
-        --     local street2 = GetStreetNameFromHashKey(s2)
-        --     local streetLabel = street1
-        --     if street2 ~= nil then 
-        --         streetLabel = streetLabel .. " " .. street2
-        --     end
-        --     -- if Config.SmallBanks[closestBank]["alarm"] then
-        --     --     TriggerServerEvent("qb-cyber:server:callCops", streetLabel, pos)
-        --     --     copsCalled = true
-        --     -- end
-        -- end
-
-
         StopAnimTask(PlayerPedId(), "anim@gangops@facility@servers@", "hotwire", 1.0)
         TriggerServerEvent('qb-cyber:server:setSpotState', "isDone", true, spot)
         TriggerServerEvent('qb-cyber:server:setSpotState', "isBusy", false, spot)
@@ -268,39 +253,6 @@ AddEventHandler('qb-cyber:client:SetThermiteStatus', function(stateType, state)
     end
 end)
 
--- RegisterNetEvent('qb-cyber:client:PoliceAlertMessage')
--- AddEventHandler('qb-cyber:client:PoliceAlertMessage', function(msg, coords, blip)
---     if blip then
---         PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
---         TriggerEvent("chatMessage", "911-Report", "error", msg)
---         local transG = 100
---         local blip = AddBlipForRadius(coords.x, coords.y, coords.z, 100.0)
---         SetBlipSprite(blip, 9)
---         SetBlipColour(blip, 1)
---         SetBlipAlpha(blip, transG)
---         SetBlipAsShortRange(blip, false)
---         BeginTextCommandSetBlipName('STRING')
---         AddTextComponentString("911 - Suspicious situation in the iFruit Store")
---         EndTextCommandSetBlipName(blip)
---         while transG ~= 0 do
---             Wait(180 * 4)
---             transG = transG - 1
---             SetBlipAlpha(blip, transG)
---             if transG == 0 then
---                 SetBlipSprite(blip, 2)
---                 RemoveBlip(blip)
---                 return
---             end
---         end
---     else
---         if not robberyAlert then
---             PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
---             TriggerEvent("chatMessage", "911-Report", "error", msg)
---             robberyAlert = true
---         end
---     end 
--- end)
-
 RegisterNUICallback('thermiteclick', function()
     PlaySound(-1, "CLICK_BACK", "WEB_NAVIGATION_SOUNDS_PHONE", 0, 0, 1)
 end)
@@ -381,57 +333,14 @@ function CreateFire(coords, time)
     TriggerServerEvent("thermite:StopFires")
 end
 
--- RegisterNetEvent('qb-cyber:client:robberyCall')
--- AddEventHandler('qb-cyber:client:robberyCall', function(streetLabel, coords)
---     if PlayerJob.name == "police" then 
---         local store = "iFruitStore"
 
---             PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
---             TriggerEvent('wf-alerts:svNotify911', {
---                 timeOut = 10000,
---                 alertTitle = "iFruitStore robbery attempt",
---                 coords = {
---                     x = coords.x,
---                     y = coords.y,
---                     z = coords.z,
---                 },
---                 details = {
---                     [1] = {
---                         icon = '<i class="fas fa-university"></i>',
---                         detail = bank,
---                     },
---                     [2] = {
---                         icon = '<i class="fas fa-video"></i>',
---                         detail = cameraId,
---                     },
---                     [3] = {
---                         icon = '<i class="fas fa-globe-europe"></i>',
---                         detail = streetLabel,
---                     },
---                 },
---                 callSign = QBCore.Functions.GetPlayerData().metadata["callsign"],
---             })
-        
---         local transG = 250
---         local blip = AddBlipForCoord(coords.x, coords.y, coords.z)
---         SetBlipSprite(blip, 487)
---         SetBlipColour(blip, 4)
---         SetBlipDisplay(blip, 4)
---         SetBlipAlpha(blip, transG)
---         SetBlipScale(blip, 1.2)
---         SetBlipFlashes(blip, true)
---         BeginTextCommandSetBlipName('STRING')
---         AddTextComponentString("10-90: iFruitStore Robbery")
---         EndTextCommandSetBlipName(blip)
---         while transG ~= 0 do
---             Wait(180 * 4)
---             transG = transG - 1
---             SetBlipAlpha(blip, transG)
---             if transG == 0 then
---                 SetBlipSprite(blip, 2)
---                 RemoveBlip(blip)
---                 return
---             end
---         end
---     end
--- end)
+Citizen.CreateThread(function()
+    local blip = AddBlipForCoord(335.77, -912.55, 29.26))
+    SetBlipSprite(blip, 775)
+    SetBlipAsShortRange(blip, true)
+    SetBlipScale(blip, 0.8)
+    SetBlipColour(blip, 84)
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentString("Cyber Bar")
+    EndTextCommandSetBlipName(blip)
+end)

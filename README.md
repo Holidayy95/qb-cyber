@@ -2,12 +2,12 @@
 
 This job is an edited version of the qb-ifruitstore - This has custom items you can grab and sell for more profitable prices.
 
-# This job is setup for Linden Outlaw Alerts.
+## This job is setup for Linden Outlaw Alerts.
 
-# Images go into your qb-inventory or aj-inventory - html/images folder.
+## Images go into your qb-inventory or aj-inventory - html/images folder.
 
 
-# This goes into your shared.lua
+## This goes into your shared.lua
 
 	['ps5'] 			 		     = {['name'] = 'ps5', 									['label'] = 'PS5 Console', 		   				['weight'] = 3000, 		['type'] = 'item', 		['image'] = 'ps5.png', 							['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'PS5? You filthy casual!'},
 	['ps2'] 			     		 = {['name'] = 'ps2', 									['label'] = 'PS2 Console', 		    			['weight'] = 3000, 		['type'] = 'item', 		['image'] = 'ps2.png', 							['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'PS2? You filthy casual!'},
@@ -18,7 +18,7 @@ This job is an edited version of the qb-ifruitstore - This has custom items you 
 
 ----------------------------------------
 
-# This goes into your qb-pawnshop/server/main.lua - Example
+## This goes into your qb-pawnshop/server/main.lua - Example
 
 <!-- local ItemListHardware = {
     ["tablet"] = math.random(50, 100),

@@ -4,6 +4,8 @@ This job is an edited version of the qb-ifruitstore - This has custom items you 
 
 ## This resources comes with Linden Outlaw alerts already setup ;)
 
+## Requies this MLO https://www.gta5-mods.com/maps/mlo-cyber-bar-fivem-sp
+
 ## Images go into your qb-inventory or aj-inventory - html/images folder.
 
 

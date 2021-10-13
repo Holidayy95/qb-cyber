@@ -86,6 +86,22 @@ Config.Locations = {
             isBusy = false,
             reward =  {name = "actionfigure", amount = 10},
         },
+        [10] = {
+            x = 346.16,
+            y = -927.37,
+            z = 29.25,
+            isDone = false,
+            isBusy = false,
+            reward =  {name = "ps5", amount = 1},
+        },
+        [11] = {
+            x = 349.29,
+            y = -903.96,
+            z = 29.25,
+            isDone = false,
+            isBusy = false,
+            reward =  {name = "gamecube", amount = 1},
+        },
     },
     ["safe"] = {
         x = 323.84,

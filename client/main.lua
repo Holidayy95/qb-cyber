@@ -1,4 +1,4 @@
-local isLoggedIn = false
+local QBCore = exports['qb-core']:GetCoreObject()
 local CurrentCops = 0
 local copsCalled = false
 
@@ -20,7 +20,7 @@ local usingSafe = false
 Citizen.CreateThread(function()
     while true do 
         Citizen.Wait(1)
-        if isLoggedIn then
+        if LocalPlayer.state.isLoggedIn then
             local pos = GetEntityCoords(PlayerPedId())
             if #(pos - vector3(Config.Locations["thermite"].x, Config.Locations["thermite"].y,Config.Locations["thermite"].z)) < 3.0 and not Config.Locations["thermite"].isDone then
                 DrawMarker(2, Config.Locations["thermite"].x, Config.Locations["thermite"].y,Config.Locations["thermite"].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.25, 0.1, 255, 255, 255, 100, 0, 0, 0, 1, 0, 0, 0)
@@ -54,7 +54,7 @@ Citizen.CreateThread(function()
     local inRange = false
     while true do
         Citizen.Wait(1) 
-        if isLoggedIn then
+        if LocalPlayer.state.isLoggedIn then
             local pos = GetEntityCoords(PlayerPedId())
             for spot, location in pairs(Config.Locations["takeables"]) do
                 local dist = #(pos - vector3(Config.Locations["takeables"][spot].x, Config.Locations["takeables"][spot].y,Config.Locations["takeables"][spot].z))

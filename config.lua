@@ -1,4 +1,5 @@
 Config = {}
+Config.MinimumCyberRobberyPolice = 2
 
 Config.Locations = {
     ["main"] = {
